@@ -1,0 +1,51 @@
+Ext.define('WhereAreYou.view.Home', {
+     extend		: 'Ext.Container'
+    ,xtype		: 'home'
+	,config: {
+		items: [
+			{
+				 xtype		: 'toolbar'
+				,docked		: 'bottom'
+				,centered 	: true
+				,height		: 50
+				,hidden		: true
+				,id			: 'emptytbbarid' 
+			}
+			,
+			{
+				 xtype		: 'maintitlebar'
+				,docked		: 'bottom'
+				,height		: 32
+				,centered 	: true
+				,cls        : 'maintitlebar'
+			}
+			,{
+				xtype		: 'map'
+				,id			: 'homemap'
+				,useCurrentLocation: true
+				,height		:'100%'
+				,width		: '100%'
+				,mapOptions:{
+					mapTypeId:google.maps.MapTypeId.ROADMAP 
+					,disableDefaultUI: true
+					// ,zoom:15
+				}
+			}
+		]
+	}
+	,initialize: function() {
+		var map = this.down('map');
+		map.element.on({
+            tap: function(e, dom) {
+				e.target.onclick=function(){
+					return false;
+				}
+				// if(e.target.tagName=='A')
+				// {
+					// alert(e.target.tagName);
+					// return false;
+				// }
+			}
+		});
+	}
+});	
