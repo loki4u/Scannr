@@ -1,0 +1,9 @@
+using css
+
+<!-- Hide google logo css -->
+     <style>
+		.gm-style > div{
+			height:0;
+			width:0;
+		}
+	</style>
